@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import { Draw } from '@mui/icons-material'
+import React from 'react'
+import Create from './components/Create'
+import Drawer from './components/Drawer'
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import View from './components/View';
+import SingleView from './components/SingleView';
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <BrowserRouter>
+        <Routes>
+          <Route exact path='/' element={<Drawer/>}></Route>
+          <Route exact path='/viewOne/:id' element={<SingleView/>}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
-
-export default App;
